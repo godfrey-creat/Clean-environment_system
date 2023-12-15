@@ -75,7 +75,51 @@
 	</div>
 </div>
 
-<!-- add similar modals for company sign in, sign up, and accept bookings -->
+<!-- Sign In Modal -->
+<div id="signInModal" class="modal">
+	<div>
+		<h2>Sign In</h2>
+		<label for="company">Company:</label>
+		<input type="text" id="company">
+		<label for="password">Password:</label>
+		<input type="password" id="password">
+		<button onclick="closeModal('SignInModal')">Close</button>
+	</div>
+</div>
+
+<!-- Sign Up Modal -->
+<div id="SignUpModal" class="modal">
+	<div>
+		<h2>Sign Up</h2>
+		<label for="companyName">Company Name:</label>
+		<input type="text" id="companyName">
+		<label for="wasteType">Waste Type:</label>
+		<input type="text" id="wasteType">
+		<label for=" email">Email:</label>
+		<input type="text" id="email">
+		<label for="phone">Phone:</label>
+		<input type="int" id="phone">
+		<label for="password">Password:</label>
+		<input type="password" id="password">
+		<button onclick="SignUp()">Register</button>
+		<button onclick="closeModal('SignUpModal')">Close</button>
+	</div>
+</div>
+
+<!-- Accept service modal -->
+<div id="acceptServiceModal" class="modal">
+	<div>
+		<h2>Accept Service</h2>
+		<label for="wasteType">Waste Type:</label>
+		<input type="text" id="wasteType">
+		<label for="client">Client:</label>
+		<select id="client">
+			<!-- populate with available clients -->
+		</select>
+		<button onclick="acceptService()">Accept</button>
+		<button onclick="closeModal('acceptServiceModal')">Close</button>
+	</div>
+</div>
 
 <script src="script.js"></script>
 </body>
