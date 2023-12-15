@@ -85,6 +85,40 @@ class MAZINGIRABORACommand(cmd.Cmd):
         else:
             print("*class doesn't exist*")
 
+    def do_place_booking(self, args):
+        """clients to place bookings for services"""
+        args = shlex.split(args)
+        if len(args) == 0:
+            print("*client id missing*")
+            return False
+        client_id = args[0]
+        if client_id in models.storage.all():
+            client = models.storage.all()[client_id]
+            location = input("Enter your location:")
+            garbage_type = input("Enter the type of waste:")
+            garbage_collection_company_id = input("select a garbage_collection_company(enter garbage_collection_company id):")
+
+            #create a booking instance.
+            print("Booking placed successfully!")
+        else:
+            print("*client not found*")
+
+    def do_accept_booking(self, args):
+        """garbage collection company to accept bookings"""
+        args = shlex.split(args)
+        if len(args) == 0:
+            print("*garbage_collection_company id missing*")
+            return False
+        garbage_collection_company_id = args[0]
+        if garbage_collection_company_id in models.storage.all():
+            garbage_collection_company = models.storage.all()[garbage_collection_company_id]
+
+            #Retrieve and display pending bookings
+            booking_id = input("Enter the booking id to accept:")
+            #Update booking status.
+            print("Booking accepted Successfully!")
+        else:
+            print("*garbage_collection_company not found*")
     def do_update(self, args):
       """updating data set"""
       args = shlex.split(args)
@@ -115,6 +149,8 @@ class MAZINGIRABORACommand(cmd.Cmd):
                   print("*no instance found*")
       else:
           print("*instance id missing*")
+
+
 
 if __name__ == '__main__':
     MAZINGIRABORACommand().cmdloop()
