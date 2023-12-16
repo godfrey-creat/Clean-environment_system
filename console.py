@@ -4,6 +4,7 @@
 import cmd
 from datetime import datetime
 import models
+from models.booking import Booking
 from models.user import Client
 from models.garbage_type import Garbage_type
 from models.garbage_collection_company import Garbage_collection_company
@@ -13,7 +14,7 @@ import argparse
 import mysql.connector
 import re
 
-classes = {"User": Client, "Garbage_type": Garbage_type, "Garbage_collection_company": Garbage_collection_company, "BaseModel": BaseModel}
+classes = {"Booking": Booking, "User": Client, "Garbage_type": Garbage_type, "Garbage_collection_company": Garbage_collection_company, "BaseModel": BaseModel}
 
 class MAZINGIRABORACommand(cmd.Cmd):
     """MAZINGIRA console"""

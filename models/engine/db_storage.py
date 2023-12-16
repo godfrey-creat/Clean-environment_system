@@ -4,6 +4,7 @@ Contains the class DBStorage
 """
 
 import models
+from models.booking import Booking
 from models.garbage_collection_company import Garbage_collection_company
 from models.base_model import BaseModel, Base
 from models.user import Clients
@@ -13,7 +14,7 @@ import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-classes = {"Client": Client, "Garbage_type": Garbage_type,
+classes = {"Booking": Booking, "Client": Client, "Garbage_type": Garbage_type,
            "Garbage_collection_company": Garbage_collection_company}
 
 

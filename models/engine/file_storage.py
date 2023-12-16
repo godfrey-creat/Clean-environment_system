@@ -4,12 +4,13 @@ Contains the FileStorage class
 """
 
 import json
+from models.booking import Booking
 from models.base_model import BaseModel
 from models.user import Client
 from models.garbage_type import Garbage_type
 from models.garbage_collection_company import Garbage_collection_company
 
-classes = {"Client": Client, "BaseModel": BaseModel, "Garbage_type": Garbage_type, "Garbage_collection_company": Garbage_collection_company }
+classes = {"Booking": Booking, "Client": Client, "BaseModel": BaseModel, "Garbage_type": Garbage_type, "Garbage_collection_company": Garbage_collection_company }
 
 
 class FileStorage:
