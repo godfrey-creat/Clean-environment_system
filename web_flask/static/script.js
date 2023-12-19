@@ -44,4 +44,29 @@ function bookService() {
 }
 
 
-//Add similar functions for company sign in, sign up, and accepgbooking
+function openSignUp(garbage_collection_companyType){
+	openModal('signUpModal');
+}
+
+function openSignInModal(garbage_collection_companyType){
+	openModal('signInModal');
+}
+
+function openAcceptBook(){
+	openModal('acceptBookModal');
+}
+
+function SignIn(){
+	//logic to handle sign-in.
+	closeModal('SignInModal');
+}
+
+function SignUp(){
+	//logic to handle sign-up.
+	closeModal('SignUpModal');
+}
+
+function acceptBook(){
+	//logic to handle accepting bookings.
+	closeModal('acceptBookModal');
+}
