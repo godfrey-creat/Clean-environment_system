@@ -1,59 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clean Environment System</title>
-
-    <!-- Include your stylesheets or other meta tags here -->
-
+    <title>Garbage Collection System</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        header {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav {
-            background-color: #333;
-            padding: 10px;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        main {
+            font-family: Arial, sans-serif;
+            margin: 20px;
             padding: 20px;
         }
 
-        section {
-            margin-bottom: 20px;
+        h1 {
+            color: #333;
         }
 
-        footer {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Clean Environment System</h1>
-    </header>
+    <h1>Garbage Collection System</h1>
 
-    <nav>
-        <a href="#">Home</a>
+    <form action="/signup" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+        <button type="submit">Sign Up</button>
+    </form>
+
+</body>
+
+</html>
+
