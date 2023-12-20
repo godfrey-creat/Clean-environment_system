@@ -1,0 +1,6 @@
+autopep8==2.0.4
+mysql-connector-python==8.2.0
+protobuf==4.21.12
+pycodestyle==2.11.1
+SQLAlchemy==2.0.22
+typing_extensions==4.8.0
