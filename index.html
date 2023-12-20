@@ -1,180 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="CSS/styles.css" />
-    <title>Garbage Collection System</title>
-  </head>
-  <body>
-    <header></header>
-    <main>
-      <section class="welcome-page">
-        <div class="welcome">
-          <img class="logo" src="./assets/logo/logo.png" alt="Delani logo" />
-          <h1>WELCOME</h1>
-          <br />
-          <h1>GARBAGE COLLECTION SYSTEM</h1>
-          <p>Connecting service providers to users</p>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <div class="mouse">
-            <img src="./assets/mouse_click.png" alt="mouse image" />
-          </div>
-        </div>
-      </section>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.9">
+	<title>Clean Environment System Platform</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-      <section class="about">
-        <h2>ABOUT US</h2>
-        <p>
-          The Garbage Collection Management System is a web application that connects garbage collection companies with individuals or businesses in need of their services. </p>
-	</p>
-	 				</p> Purpose: Streamlining and improving the efficiency of waste management services and to ensure a green environment.</p>
-      
-      </section>
+<div>
+	<h1> Welcome to Clean Environment System Platform</h1>
 
-      <section class="services">
-        <div class="ourServices">
-          <h2>SERVICES</h2>
-          <p>we take pride in our culture of environmental responsibility and dedication to providing top-notch waste management services. Our team is committed to creating cleaner and greener communities<p>
-        </div>
-      </section>
+	<!-- Client Section -->
+	<div>
+		<h2>Client</h2>
+		<button onclick="openSignIn('client')">Sign In</buttom>
+		<button onclick="openSignUp('client')">Sign Up</button>
+		<button onclick="openBookService()">Book Services</button>
+	</div>
 
-      <section class="what-we-do">
-        <h2>WHAT WE DO</h2>
-        <div class="container">
-          <div class="row align-items-start">
-            <div class="col">
-              <img id="hidden1" src="./assets/services_icons/design_icon.png" alt="" />
-              <h6>DESIGN</h6>
-              <div class="hide1">
-                <p>
-                  Our design practice offers a full range of services including Waste Collection,Transportation to Disposal Sites, Recycling Initiatives, Equipment Maintenance and Cleaning </p>
-              </div>
-            </div>
-            <div class="col">
-              <img id="hidden2" src="./assets/services_icons/dev_icon.png" alt="" />
-              <h6>WASTE COLLECTION</h6>
-              <div class="hide2">
-                <p>
-                  We specialize in the prompt and reliable collection of waste from residential, commercial, and industrial areas. Our dedicated team utilizes state-of-the-art garbage trucks to ensure efficient and timely waste pickup.
-                </p>
-              </div>
-            </div>
-            <div class="col">
-              <img id="hidden3" src="./assets/services_icons/product_icon.png" alt="" />
-              <h6>Transportation to Disposal Sites</h6>
-              <div class="hide3">
-                <p>
-                  Once collected, we transport the waste to designated disposal sites, landfills, or recycling centers. Our fleet of large vehicles, including specialized garbage trucks, guarantees the safe and compliant transportation of waste materials.
-		   </p>
-              </div>
-            </div>
-            <div class="col">
-              <img id="hidden3" src="./assets/services_icons/product_icon.png" alt="" />
-              <h6>Recycling Initiatives</h6>
-              <div class="hide3">
-                <p>
-                 Contributing to environmental sustainability, we actively promote recycling initiatives. Our team segregates recyclable materials, diverting them from landfills and facilitating their processing at recycling centers.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section class="portfolio">
-        <h2>PORTFOLIO</h2>
-        <div class="wrapper">
-          <div class="works">
-            <img id="works1" src="./assets/portfolio/work4.jpg" alt="" />
-            <div class="img_title1">Black project</div>
-          </div>
-          <div class="works">
-            <img id="works2" src="./assets/portfolio/work3.jpg" alt="Mighty" />
-            <div class="img_title2">Mighty project</div>
-          </div>
-          <div class="works">
-            <img id="works3" src="./assets/portfolio/work1.jpg" alt="Diamond" />
-            <div class="img_title3">Diamond project</div>
-          </div>
-          <div class="works">
-            <img id="works4" src="./assets/portfolio/work2.jpg" alt="Movies" />
-            <div class="img_title4">Movies project</div>
-          </div>
-          <div class="works">
-            <img id="works5" src="./assets/portfolio/work5.jpg" alt="Elena" />
-            <div class="img_title5">Elena projet</div>
-          </div>
-          <div class="works">
-            <img id="works6" src="./assets/portfolio/work6.jpg" alt="BMI" />
-            <div class="img_title6">BMI project</div>
-          </div>
-          <div class="works">
-            <img id="works7" src="./assets/portfolio/work7.jpg" alt="Burned" />
-            <div class="img_title7">Burned project</div>
-          </div>
-          <div class="works">
-            <img id="works8" src="./assets/portfolio/work8.jpg" alt="Giraffe" />
-            <div class="img_title8">Giraffe project</div>
-          </div>
-        </div>
-      </section>
+	<!--  Garbage Collection Company Section -->
+	<div>
+		<h2>Garbage Collection Company</h2>
+		<button onclick="openSignIn('company')">Sign In</button>
+		<button onclick="openSignUp('company')">Sign Up</button>
+		<button onclick="openAcceptBooking()">Accept Booking</button>
+	</div>
+</div>
 
-      <section class="contact">
-        <div class="reachUs">
-          <h2>CONTACT US</h2>
-          <form action="https://formspree.io/f/mzbovbqb" method="post">
-            <label for="name"></label>
-            <input class="name" type="text" name="name" placeholder="Name..." required />
-            <label for="email"></label>
-            <input class="email" type="email" name="email" placeholder="Email..." required /> <br />
-            <br />
-            <label for="textarea"></label>
-            <textarea name="text" id="" cols="70" rows="10" placeholder="Your message here..."></textarea><br />
-            <input class="submit" type="submit" value="Submit" />
-          </form>
-        </div>
-      </section>
+<!-- Sign In Modal -->
+<div id="signInModal" class="modal">
+	<div>
+		<h2>Sign In</h2>
+		<label for="username">Username:</label>
+		<input type="text" id="username">
+		<label for="password">Password:</label>
+		<input type="password" id="password">
+		<button onclick="closeModal('SignInModal')">Close</button>
+	</div>
+</div>
 
-      <footer class="footer">
-        <div class="socials">
-          <img src="./assets/social_icons/twitter.png" alt="twitter icon" />
-          <img src="./assets/social_icons/dribble.png" alt="dribble icon" />
-          <img src="./assets/social_icons/facebook.png" alt="facebook icon" />
-          <img src="./assets/social_icons/g_plus.png" alt="Googleplus icon" />
-          <img src="./assets/social_icons/skype.png" alt="skype icon" />
-          <img src="./assets/social_icons/stumble_upon.png" alt="stumble icon" />
-          <img src="./assets/social_icons/pinterest.png" alt="pinterest icon" />
-          <img src="./assets/social_icons/behance.png" alt="behance icon" />
-          <img src="./assets/social_icons/flickr.png" alt="flickr icon" />
-        </div>
-        <br />
-        <p>DELANI STUDIO</p>
-        <p>2022</p>
-      </footer>
-    </main>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="JS/scripts.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+<!-- Sign Up Modal -->
+<div id="SignUpModal" class="modal">
+	<div>
+		<h2>Sign Up</h2>
+		<label for="firstName">First Name:</label>
+		<input type="text" id="firstName">
+		<label for="lastName">Last Name:</label>
+		<input type="text" id="lastName">
+		<label for="email">Email:</label>
+		<input type="text" id="email">
+		<label for="password">Password:</label>
+		<input type="password" id="password">
+		<button onclick="signUp()">Register</button>
+		<button onclick="closeModal('signUpModal')">Close</button>
+	</div>
+</div>
+
+<!-- Book Service Modal -->
+<div id="bookServiceModal" class="modal">
+	<div>
+		<h2>Book Service</h2>
+		<label for="location">Location:</label>
+		<input type="text" id="location">
+		<label for="company">Garbage Collection Company:</label>
+		<select id="company">
+			<!-- populate with available companies -->
+		</select>
+		<label for="garbageType">Type of Garbage:</label>
+		<input type="text" id="garbageType">
+		<button onclick="bookService()">Book</button>
+		<button onclick="closeModal('bookServiceModal')">Close</button>
+	</div>
+</div>
+
+<!-- Sign In Modal -->
+<div id="signInModal" class="modal">
+	<div>
+		<h2>Sign In</h2>
+		<label for="company">Company:</label>
+		<input type="text" id="company">
+		<label for="password">Password:</label>
+		<input type="password" id="password">
+		<button onclick="closeModal('SignInModal')">Close</button>
+	</div>
+</div>
+
+<!-- Sign Up Modal -->
+<div id="SignUpModal" class="modal">
+	<div>
+		<h2>Sign Up</h2>
+		<label for="companyName">Company Name:</label>
+		<input type="text" id="companyName">
+		<label for="wasteType">Waste Type:</label>
+		<input type="text" id="wasteType">
+		<label for=" email">Email:</label>
+		<input type="text" id="email">
+		<label for="phone">Phone:</label>
+		<input type="int" id="phone">
+		<label for="password">Password:</label>
+		<input type="password" id="password">
+		<button onclick="SignUp()">Register</button>
+		<button onclick="closeModal('SignUpModal')">Close</button>
+	</div>
+</div>
+
+<!-- Accept service modal -->
+<div id="acceptServiceModal" class="modal">
+	<div>
+		<h2>Accept Service</h2>
+		<label for="wasteType">Waste Type:</label>
+		<input type="text" id="wasteType">
+		<label for="client">Client:</label>
+		<select id="client">
+			<!-- populate with available clients -->
+		</select>
+		<button onclick="acceptService()">Accept</button>
+		<button onclick="closeModal('acceptServiceModal')">Close</button>
+	</div>
+</div>
+
+<script src="script.js"></script>
+</body>
 </html>
