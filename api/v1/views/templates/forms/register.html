@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Registration</h1>
+    <form method="POST" action="{{ url_for('registration_route') }}">
+        {{ form.hidden_tag() }}
+        <label for="companyname">Company Name:</label>
+        {{ form.companyname(class="form-control") }}
+        <label for="waste_type">Waste Type:</label>
+        {{ form.waste_type(class="form-control") }}
+        <label for="location">Location:</label>
+        {{ form.location(class="form-control") }}
+        <label for="email">Email:</label>
+        {{ form.email(class="form-control") }}
+        <label for="phone_no">Phone No:</label>
+        {{ form.phone_no(class="form-control") }}
+        <label for="password">Password:</label>
+        {{ form.password(class="form-control") }}
+        <label for="confirm_password">Confirm Password:</label>
+        {{ form.confirm_password(class="form-control") }}
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
