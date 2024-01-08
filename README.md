@@ -27,7 +27,7 @@ MazingiraBora is a command-line interpreter designed to facilitate booking servi
 
 2. Run the command-line interpreter:
    ```bash
-   python mazingirabora.py
+   python console.py
    ```
 
 ## Usage
