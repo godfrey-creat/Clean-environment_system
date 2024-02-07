@@ -1,0 +1,14 @@
+cleansystem_env/
+file.json
+models/__pycache__/__init__.cpython-310.pyc
+models/__pycache__/base_model.cpython-310.pyc
+models/__pycache__/booking.cpython-310.pyc
+models/__pycache__/garbage_collection_company.cpython-310.pyc
+models/__pycache__/garbage_type.cpython-310.pyc
+models/__pycache__/models.cpython-310.pyc
+models/__pycache__/user.cpython-310.pyc
+models/engine/__pycache__/__init__.cpython-310.pyc
+models/engine/__pycache__/file_storage.cpython-310.pyc
+api/v1/views/__pycache__/
+api/__pycache__/
+api/v1/__pycache__/

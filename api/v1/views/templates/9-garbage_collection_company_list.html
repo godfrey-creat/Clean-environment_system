@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>MAZINGIRABORA</title>
+    </head>
+    <body>
+        <h1>Garbage_collection_companies</h1>
+        <ul>
+        {% for garbage_collection_company in garbage_collection_companies | sort(attribute="name") %}
+            <li>{{ garbage_collection_company.id }}: <b>{{ garbage_collection_company.name }}</b></li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>

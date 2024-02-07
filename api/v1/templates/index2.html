@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.9">
+	<title>Clean Environment System Platform</title>
+	<link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+<div>
+	<h1> Welcome to Clean Environment System Platform</h1>
+    <h1><a href="/login"></a></h1>
+	<h1><a href="/registration"></a></h1>
+	<!-- Client Section -->
+	<div>
+		<h2>Client</h2>
+		<button onclick="openSignIn('client')">Sign In</buttom>
+		<button onclick="openSignIn('client')">Sign In</buttom>
+		<button onclick="openSignUp('client')">Sign Up</button>
+		<button onclick="openBookService()">Book Services</button>
+	</div>
+
+
+	<!--  Garbage Collection Company Section -->
+	<div>
+		<h2>Garbage Collection Company</h2>
+		<button onclick="openSignIn('company')">Sign In</button>
+		<button onclick="openSignUp('company')">Sign Up</button>
+		<button onclick="openAcceptBooking()">Accept Booking</button>
+	</div>
+</div>
+
+<!-- Sign In Modal -->
+<div id="signInModal" class="modal">
+	<div>
+		<h2>Sign In</h2>
+		<label for="username">Username:</label>
+		<input type="text" id="username">
+		<label for="password">Password:</label>
+		<input type="password" id="password">
+		<button onclick="closeModal('SignInModal')">Close</button>
+	</div>
+</div>
+
+<!-- Sign Up Modal -->
+<div id="SignUpModal" class="modal">
+	<div>
+		<h2>Sign Up</h2>
+		<label for="firstName">First Name:</label>
+		<input type="text" id="firstName">
+		<label for="lastName">Last Name:</label>
+		<input type="text" id="lastName">
+		<label for="email">Email:</label>
+		<input type="text" id="email">
+		<label for="password">Password:</label>
+		<input type="password" id="password">
+		<button onclick="signUp()">Register</button>
+		<button onclick="closeModal('signUpModal')">Close</button>
+	</div>
+</div>
+
+<!-- Book Service Modal -->
+<div id="bookServiceModal" class="modal">
+	<div>
+		<h2>Book Service</h2>
+		<label for="location">Location:</label>
+		<input type="text" id="location">
+		<label for="company">Garbage Collection Company:</label>
+		<select id="company">
+			<!-- populate with available companies -->
+		</select>
+		<label for="garbageType">Type of Garbage:</label>
+		<input type="text" id="garbageType">
+		<button onclick="bookService()">Book</button>
+		<button onclick="closeModal('bookServiceModal')">Close</button>
+	</div>
+</div>
+
+<!-- Sign In Modal -->
+<div id="signInModal" class="modal">
+	<div>
+		<h2>Sign In</h2>
+		<label for="company">Company:</label>
+		<input type="text" id="company">
+		<label for="password">Password:</label>
+		<input type="password" id="password">
+		<button onclick="closeModal('SignInModal')">Close</button>
+	</div>
+</div>
+
+<!-- Sign Up Modal -->
+<div id="SignUpModal" class="modal">
+	<div>
+		<h2>Sign Up</h2>
+		<label for="companyName">Company Name:</label>
+		<input type="text" id="companyName">
+		<label for="wasteType">Waste Type:</label>
+		<input type="text" id="wasteType">
+		<label for=" email">Email:</label>
+		<input type="text" id="email">
+		<label for="phone">Phone:</label>
+		<input type="int" id="phone">
+		<label for="password">Password:</label>
+		<input type="password" id="password">
+		<button onclick="SignUp()">Register</button>
+		<button onclick="closeModal('SignUpModal')">Close</button>
+	</div>
+</div>
+
+<!-- Accept service modal -->
+<div id="acceptServiceModal" class="modal">
+	<div>
+		<h2>Accept Service</h2>
+		<label for="wasteType">Waste Type:</label>
+		<input type="text" id="wasteType">
+		<label for="client">Client:</label>
+		<select id="client">
+			<!-- populate with available clients -->
+		</select>
+		<button onclick="acceptService()">Accept</button>
+		<button onclick="closeModal('acceptServiceModal')">Close</button>
+	</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
