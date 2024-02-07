@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<HTML lang="en">
+
+<HEAD>
+    <TITLE>Clean Environment Management</TITLE>
+    <LINK rel="stylesheet" href="static/styles/4-common.css">
+    <LINK rel="stylesheet" href="static/styles/3-header.css">
+    <LINK rel="stylesheet" href="static/styles/3-footer.css">
+    <LINK rel="stylesheet" href="static/styles/6-filters.css">
+    <LINK rel="icon" href="static/images/icon.png" type="image/png">
+</HEAD>
+
+<BODY>
+    <HEADER>
+        <DIV class="logo"></DIV>
+    </HEADER>
+    <DIV class="container">
+        <SECTION class="filters">
+            <BUTTON type="button">Search</BUTTON>
+            <DIV class="locations">
+                <H3>Clients</H3>
+                <H4>&nbsp;</H4>
+                    <UL class="popover">
+                    {% for client in clients.values() | sort(attribute="name") %}
+                        <LI><H2>{{ client.name }}</H2></LI>
+                        <LI>
+                            <UL class="popover_l">
+                            {% for garbage_type in client.garbage_types | sort(attribute="name") %}
+                            <LI>{{ garbage_type.name }}</LI>
+                            {% endfor %}
+                            </UL>
+                        </LI>
+                    {% endfor %}
+                  </UL>
+            </DIV>
+            <DIV class="bookings">
+                <H3>Bookings</H3>
+                <H4>&nbsp;</H4>
+                <UL class="popover">
+                {% for booking in bookings.values() | sort(attribute="name") %}
+                <LI>{{ booking.name }}</LI>
+                {% endfor %}
+                </UL>
+            </DIV>
+        </SECTION>
+        <SECTION class="garbage_collection_company">
+            <DIV class="garbage_collection_companies_title">
+                <h1>Garbage_collection_companies</h1>
+            </DIV>
+            <DIV class="articles">
+            {% for garbage_collection_company in garbage_collection_companies.values() | sort(attribute="name") %}
+                <ARTICLE>
+                    <DIV class="price_title">
+                        <DIV class="article_title">
+                            <H2>{{ garbage_collection_company.name }}</H2>
+                        </DIV>
+                        <DIV class="price_by_garbage_type">
+                            <DIV class="price">
+                                &#36;{{ garbage_collection_company.price_by_garbage_type }}
+                            </DIV>
+                        </DIV>
+                    </DIV>
+                    <DIV class="information">
+                        <DIV class="max_waste_amount">
+                            <DIV class="waste_icon">
+                            </DIV>
+                            <DIV class="waste_amount">
+                                <H2>{{ garbage_collection_company.max_waste }} Wastes</H2>
+                            </DIV>
+                        </DIV>
+                        <DIV class="number_trips">
+                            <DIV class="trips_icon">
+                            </DIV>
+                            <DIV class="trips_number">
+                                <H2>{{ garbage_collection_company.number_trips }} Trips</H2>
+                            </DIV>
+                        </DIV>
+                    <DIV class="client">
+                        <b>Owner:</b> {{ garbage_collection_company.client.first_name }} {{ garbage_collection_company.client.last_name }}
+                    </DIV>
+                    <DIV class="description">
+                        {{ garbage_collection_company.description | reliable }}
+                    </DIV>
+                </ARTICLE>
+            {% endfor %}
+            </DIV>
+        </SECTION>
+    </DIV>
+    <FOOTER>
+        Godfrey  Ruth
+    </FOOTER>
+</BODY>
+
+</HTML>
