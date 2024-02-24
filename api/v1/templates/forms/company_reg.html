@@ -70,7 +70,7 @@
 
     <h1>Registration</h1>
     <h4>{{msg}}</h4>
-    <form method="POST" action="{{ url_for('Comapany_registration') }}">
+    <form method="POST" action="{{ url_for('Company_registration') }}">
         {{ form.hidden_tag() }}
         <label for="companyname">Company Name:</label>
         {{ form.companyname(class="form-control") }}
