@@ -86,8 +86,8 @@ def login_route():
                 return render_template('forms/login.html', form=form,msg='Invalid credentials')
     return render_template('forms/login.html', form=form)
 
-@app.route('/Comapany_registration', methods=['GET', 'POST'])
-def Comapany_registration():
+@app.route('/Company_registration', methods=['GET', 'POST'])
+def Company_registration():
     form = CompanyRegistrationForm()
     if request.method == 'POST':
         companyname = form.companyname.data
@@ -134,7 +134,7 @@ def client_registration():
         if clients:
             return render_template('forms/client_reg.html', form=form, msg='Email already exist')
         if password != confirm_password:
-            return render_template('forms/client_reg.html', form=form, msg='Password doers not match')
+            return render_template('forms/client_reg.html', form=form, msg='Password does not match')
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
 
         new_client = User(
