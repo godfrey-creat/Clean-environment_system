@@ -33,5 +33,5 @@ class Company(db.Model,UserMixin):
 
 
     def __repr__(self):
-        return f"Company('{self.companyname}', '{self.email}', '{self.phone_no}')"
+        return f"Companies('{self.companyname}', '{self.email}', '{self.phone_no}')"
 
