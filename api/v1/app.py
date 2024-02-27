@@ -89,7 +89,6 @@ def login_route():
 @app.route('/Company_registration', methods=['GET', 'POST'])
 def Company_registration():
     form = CompanyRegistrationForm()
-    print('form available')
     if request.method == 'POST':
         companyname = form.companyname.data
         waste_type = form.waste_type.data
@@ -102,7 +101,7 @@ def Company_registration():
         if companies:
             return render_template('forms/company_reg.html', form=form, msg='Company already registered')
         if password != confirm_password:
-            return render_template('forms/company_reg.html', form=form, msg='Password doers not match')
+            return render_template('forms/company_reg.html', form=form, msg='Password does not match')
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
 
         new_company = Company(
