@@ -89,6 +89,7 @@ def login_route():
 @app.route('/Company_registration', methods=['GET', 'POST'])
 def Company_registration():
     form = CompanyRegistrationForm()
+    print('form avaailable')
     if request.method == 'POST':
         companyname = form.companyname.data
         waste_type = form.waste_type.data
