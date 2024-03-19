@@ -44,11 +44,11 @@ function bookService() {
 }
 
 
-function openSignUp(garbage_collection_companyType){
+function openSignUp(companyType){
 	openModal('signUpModal');
 }
 
-function openSignInModal(garbage_collection_companyType){
+function openSignInModal(companyType){
 	openModal('signInModal');
 }
 

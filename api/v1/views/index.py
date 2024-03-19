@@ -21,7 +21,7 @@ def count():
     """
     Retrieving the number of each objects by type
     """
-    return jsonify({"garbage_collection_company": storage.count("Garbage_collection_company"),
-                    "garbage_types": storage.count("Garbage_type"),
+    return jsonify({"companies": storage.count("Company"),
+                    "waste_types": storage.count("Waste_type"),
                     "clients": storage.count("Client"),
                     "bookings": storage.count("Booking")})

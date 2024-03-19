@@ -6,7 +6,7 @@ from werkzeug.exceptions import NotFound, MethodNotAllowed, BadRequest
 from api.v1.views import app_views
 from models import storage, storage_t
 from models.booking import Booking
-from models.client import Client
+from models.user import Client
 from models.garbage_collection_company import Garbage_collection_company
 
 

@@ -1,75 +1,123 @@
-#!/usr/bin/python3
-"""
-The file containing the Client module
+#!/usr/bin/env python3
+""" Module of Users views
 """
 from api.v1.views import app_views
-from flask import jsonify, abort, request, make_response
-from models import storage
+from flask import abort, jsonify, request
 from models.user import Client
-from flasgger.utils import swag_from
 
 
-@app_views.route('/clients', methods=['GET'], strict_slashes=False)
-@swag_from('documentation/client/get.yml', methods=['GET'])
-def get_all_clientss():
-    """ get clientss by id"""
-    all_list = [obj.to_dict() for obj in storage.all(Client).values()]
-    return jsonify(all_list)
+@app_views.route('/users', methods=['GET'], strict_slashes=False)
+def view_all_users() -> str:
+    """ GET /api/v1/clients
+    Return:
+      - list of all User objects JSON represented
+    """
+    all_users = [user.to_json() for user in Client.all()]
+    return jsonify(all_users)
 
 
-@app_views.route('/çlients/<string:client_id>', methods=['GET'],
-                 strict_slashes=False)
-@swag_from('documentation/client/get_id.yml', methods=['GET'])
-def get_client(client_id):
-    """ get client by id"""
-    client = storage.get(Client, client_id)
-    if client is None:
+@app_views.route('/users/<user_id>', methods=['GET'], strict_slashes=False)
+def view_one_user(user_id: str = None) -> str:
+    """ GET /api/v1/users/:id
+    Path parameter:
+      - User ID
+    Return:
+      - User object JSON represented
+      - 404 if the User ID doesn't exist
+    """
+    if user_id is None:
         abort(404)
-    return jsonify(client.to_dict())
-
-
-@app_views.route('/clients/<string:client_id>', methods=['DELETE'],
-                 strict_slashes=False)
-@swag_from('documentation/client/delete.yml', methods=['DELETE'])
-def del_client(client_id):
-    """ delete client by id"""
-    client = storage.get(Client, client_id)
-    if client is None:
+    user = Client.get(user_id)
+    if user is None:
         abort(404)
-    client.delete()
-    storage.save()
-    return jsonify({})
+    return jsonify(user.to_json())
 
 
-@app_views.route('/clients/', methods=['POST'],
-                 strict_slashes=False)
-@swag_from('documentation/client/post.yml', methods=['POST'])
-def create_obj_client():
-    """ create new instance """
-    if not request.get_json():
-        return make_response(jsonify({"error": "Not a JSON"}), 400)
-    if 'email' not in request.get_json():
-        return make_response(jsonify({"error": "Missing email"}), 400)
-    if 'password'not in request.get_json():
-        return make_response(jsonify({"error": "Missing password"}), 400)
-    js = request.get_json()
-    obj = Client(**js)
-    obj.save()
-    return (jsonify(obj.to_dict()), 201)
-
-
-@app_views.route('/clients/<string:client_id>', methods=['PUT'],
-                 strict_slashes=False)
-@swag_from('documentation/client/put.yml', methods=['PUT'])
-def post_client(client_id):
-    """  """
-    if not request.get_json():
-        return make_response(jsonify({"error": "Not a JSON"}), 400)
-    obj = storage.get(Client, client_id)
-    if obj is None:
+@app_views.route('/users/<user_id>', methods=['DELETE'], strict_slashes=False)
+def delete_user(user_id: str = None) -> str:
+    """ DELETE /api/v1/users/:id
+    Path parameter:
+      - User ID
+    Return:
+      - empty JSON is the User has been correctly deleted
+      - 404 if the User ID doesn't exist
+    """
+    if user_id is None:
         abort(404)
-    for key, value in request.get_json().items():
-        if key not in ['id', 'email', 'created_at', 'updated']:
-            setattr(obj, key, value)
-    storage.save()
-    return jsonify(obj.to_dict())
+    user = Client.get(user_id)
+    if user is None:
+        abort(404)
+    user.remove()
+    return jsonify({}), 200
+
+
+@app_views.route('/users', methods=['POST'], strict_slashes=False)
+def create_user() -> str:
+    """ POST /api/v1/users/
+    JSON body:
+      - email
+      - password
+      - last_name (optional)
+      - first_name (optional)
+    Return:
+      - User object JSON represented
+      - 400 if can't create the new User
+    """
+    rj = None
+    error_msg = None
+    try:
+        rj = request.get_json()
+    except Exception as e:
+        rj = None
+    if rj is None:
+        error_msg = "Wrong format"
+    if error_msg is None and rj.get("email", "") == "":
+        error_msg = "email missing"
+    if error_msg is None and rj.get("password", "") == "":
+        error_msg = "password missing"
+    if error_msg is None:
+        try:
+            user = Client()
+            user.email = rj.get("email")
+            user.password = rj.get("password")
+            user.first_name = rj.get("first_name")
+            user.last_name = rj.get("last_name")
+            user.save()
+            return jsonify(user.to_json()), 201
+        except Exception as e:
+            error_msg = "Can't create User: {}".format(e)
+    return jsonify({'error': error_msg}), 400
+
+
+@app_views.route('/users/<user_id>', methods=['PUT'], strict_slashes=False)
+def update_user(user_id: str = None) -> str:
+    """ PUT /api/v1/users/:id
+    Path parameter:
+      - User ID
+    JSON body:
+      - last_name (optional)
+      - first_name (optional)
+    Return:
+      - User object JSON represented
+      - 404 if the User ID doesn't exist
+      - 400 if can't update the User
+    """
+    if user_id is None:
+        abort(404)
+    user = Client.get(user_id)
+    if user is None:
+        abort(404)
+    rj = None
+    try:
+        rj = request.get_json()
+    except Exception as e:
+        rj = None
+    if rj is None:
+        return jsonify({'error': "Wrong format"}), 400
+    if rj.get('first_name') is not None:
+        user.first_name = rj.get('first_name')
+    if rj.get('last_name') is not None:
+        user.last_name = rj.get('last_name')
+    user.save()
+    return jsonify(user.to_json()), 200
+
