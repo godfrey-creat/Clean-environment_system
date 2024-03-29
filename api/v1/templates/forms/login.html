@@ -10,41 +10,40 @@
 
         <div class="section-title">
           <h2>Contact</h2>
-          <p>The environment is where we all meet; where we all have a mutual interest; it is the one thing all of us share.</p>
+          <h5 class="text-info">User Login</h5>
         </div>
 
       </div>
 
       <div class="container">
-
-          <div class="col-lg-6">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 border p-5 rounded">
             {{msg}}
             <form method="POST" action="{{ url_for('login_route') }}" role="form" >
-                {{msg}}
+              {{msg}}
               <div class="form-group mt-3">
                 <label for="email">Email:</label>
                 {{ form.email(class="form-control") }}
               </div>
-
+      
               <div class="form-group mt-3">
                 <label for="login_as">Log in as:</label>
                 {{ form.login_as(class="form-control") }}
               </div>
-
+      
               <div class="form-group mt-3">
                 <label for="password">Password:</label>
                 {{ form.password(class="form-control") }}
               </div>
+              
               <div class="form-group mt-3">
-                <button class="btn btn-primary" type="submit">Login</button>   
-                <a href="/client_registration">Register as client</a>     
-                <a href="/Company_registration">Register as company</a>         
+                <button class="btn btn-info" type="submit">Login</button> <br/>
+                <a href="/client_registration" class="ml-2">Register as client</a>     
+                <a href="/Company_registration" class="ml-2 p-4">Register as company</a>         
               </div>
             </form>
           </div>
-
         </div>
-
       </div>
     </section><!-- End Contact Section -->
 

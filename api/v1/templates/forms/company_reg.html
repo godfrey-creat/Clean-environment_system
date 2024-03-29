@@ -10,16 +10,16 @@
 
         <div class="section-title">
           <h2>Contact</h2>
-          <p>The Earth does not belong to us: we belong to the Earth.</p>
+          <h5 class="text-info">Company Registration</h5>
         </div>
 
       </div>
 
       <div class="container">
-
-          <div class="col-lg-6">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 border p-5 rounded">
             {{msg}}
-            <form method="POST" action="/Company_registration" role="form" class="php-email-form">
+            <form method="POST" action="/Company_registration" role="form">
               <div class="form-group mt-3">
                 <label for="companyname">Company Name</label>
                 {{ form.companyname(class="form-control") }}
@@ -55,12 +55,13 @@
                 {{ form.confirm_password(class="form-control") }}
               </div>
               <div class="form-group mt-3">
-                <button type="submit">Register</button>                
+                <button class="btn btn-info" type="submit">Register</button>              
               </div>
             </form>
           </div>
 
         </div>
+      </div>
 
       </div>
     </section><!-- End Contact Section -->
@@ -86,7 +87,7 @@
         {{ form.password(class="form-control") }}
         <label for="confirm_password">Confirm Password:</label>
         {{ form.confirm_password(class="form-control") }}
-        <button type="submit">Register</button>
+        <button class="btn btn-info" type="submit">Register</button> 
     </form>
 </body>
 </html>
