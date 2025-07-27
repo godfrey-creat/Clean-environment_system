@@ -202,9 +202,20 @@ def client_registration():
 
 
 @app.route('/booking', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def booking():
     companies= Company.query.all()
+    if request.method == 'POST':
+        company_id = request.form.get('company_id')
+        waste_type = request.form.get('waste_type')
+        pickup_date = request.form.get('pickup_date')
+        pickup_time = request.form.get('pickup_time')
+        user_id = current_user.id
+        # Here you would typically save the booking to the database
+        # For demonstration, we'll just print the booking details
+        print(f"Booking created for Company ID: {company_id}, Waste Type: {waste_type}, Pickup Date: {pickup_date}, Pickup Time: {pickup_time}, User ID: {user_id}")
+        return render_template('home.html', companies=companies, msg='Booking created successfully')
+    # If GET request, render the booking form
     return render_template('home.html',companies=companies)
 if __name__ == '__main__':
     db.create_all()
